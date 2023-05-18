@@ -2,7 +2,7 @@
 
 import minimist from 'minimist';
 
-import main from '../index.js';
+import main from '../lib/index.js';
 
 const {
   _: [dir] = process.cwd(),

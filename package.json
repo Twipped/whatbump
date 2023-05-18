@@ -2,12 +2,17 @@
   "name": "whatbump",
   "version": "1.0.0",
   "description": "Get a recommended version bump based on conventional commits",
+  "main": "lib/index.js",
   "bin": {
     "whatbump": "bin/index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "lib",
+    "bin"
+  ],
   "keywords": [],
   "author": "Jocelyn Badgley <joc@twipped.com>",
   "license": "MIT",
