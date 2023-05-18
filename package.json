@@ -1,0 +1,22 @@
+{
+  "name": "whatbump",
+  "version": "0.0.0",
+  "description": "Get a recommended version bump based on conventional commits",
+  "bin": {
+    "whatbump": "bin/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Jocelyn Badgley <joc@twipped.com>",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@coveo/semantic-monorepo-tools": "^2.1.2",
+    "conventional-changelog-conventionalcommits": "^5.0.0",
+    "conventional-changelog-preset-loader": "^2.3.4",
+    "conventional-commits-filter": "^2.0.7",
+    "minimist": "^1.2.8"
+  }
+}
