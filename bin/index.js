@@ -10,6 +10,7 @@ const {
   ref = 'HEAD',
   'type-filter': typeFilter = 'fix, feat, feature, breaking',
   preset = 'conventionalcommits',
+  json,
   help
 } = minimist(process.argv.slice(2));
 const TYPES = typeFilter.split(/,\s?/).map((s) => s.trim());
@@ -33,6 +34,7 @@ if (help) {
     --type-filter=...  Comma separated list of commit types to accept, ignoring all other
                        types. Defaults to "fix, feat, feature, breaking"
 
+    --json             Output both bump level and changelog as a JSON object
 `);
   process.exit(0);
 }
@@ -44,7 +46,10 @@ main({
   preset,
   types: typeFilter.split(/,\s?/).map((s) => s.trim())
 }).then(
-  (level) => console.log(level),
+  (result) => {
+    if (json) process.stdout.write(JSON.stringify(result));
+    else process.stdout.write(result.level || '');
+  },
   (err) => console.error(err)
 );
 
