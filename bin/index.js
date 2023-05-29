@@ -6,7 +6,7 @@ import main from '../lib/index.js';
 
 const {
   _: [dir] = process.cwd(),
-  base = 'main',
+  base = 'origin/main',
   ref = 'HEAD',
   'type-filter': typeFilter = 'fix, feat, feature, breaking',
   preset = 'conventionalcommits',
