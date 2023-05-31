@@ -1,6 +1,6 @@
 {
   "name": "whatbump",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Get a recommended version bump based on conventional commits",
   "main": "lib/index.js",
   "bin": {
