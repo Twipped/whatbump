@@ -33,6 +33,8 @@ const HELP = `
     
     --repo=...         Repo url for creating links in the changelog. If not provided, whatbump will look
                        for it in a package.json in the target directory.
+    
+    --name=...         Name of the package for insertion into changelog output.
 `;
 
 main().then(
@@ -52,6 +54,7 @@ async function main () {
     changelog: showChangelog,
     preid,
     version,
+    name,
     repo,
     'no-pkg': noPkgJson,
     json,
@@ -64,6 +67,7 @@ async function main () {
   if (version) context.version = version;
   if (repo) context.repoUrl = repo;
   if (preid) context.preid = preid;
+  if (name) context.name = name;
 
   if (context.repoUrl) {
     Object.assign(context, parseRepo(context.repoUrl));
@@ -88,9 +92,10 @@ async function main () {
 
 async function loadPackageContext (cwd) {
   const { packageJson: pkg } = await readPackageUp({ cwd });
-  const { version } = pkg;
+  const { name, version } = pkg;
 
   return {
+    name,
     version,
     repoUrl: pkg?.repository?.url,
   };
